@@ -1,9 +1,9 @@
-nome = 'Luiz Otávio'
-sobrenome = 'Miranda'
-idade = 18
-ano_nascimento = 2022 - idade
+nome = 'Marcos Benhur'
+sobrenome = 'Dorneles'
+idade = 31
+ano_nascimento = 2023 - idade
 maior_de_idade = idade >= 18
-altura_metros = 1.80
+altura_metros = 1.90
 
 print('Nome:', nome)
 print('Sobrenome:', sobrenome)
