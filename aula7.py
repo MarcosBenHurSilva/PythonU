@@ -11,7 +11,7 @@
 # print(int_um, type(int_um))
 # print(nome_completo, soma_dois_mais_dois)
 
-nome = 'Luiz'
+nome = 'Lucas'
 idade = 17
 maior_de_idade = idade >= 18
 print('Nome:', nome, 'Idade:', idade)
