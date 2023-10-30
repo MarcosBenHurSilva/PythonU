@@ -1,7 +1,7 @@
 import random
 
 # Lista de palavras secretas
-palavras_secretas = ["python", "programacao", "computador", "desenvolvimento", "openai", "inteligencia"]
+palavras_secretas = ["python", "programacao", "computador", "desenvolvimento", "curso", "inteligencia", "palavra", "secreta"]
 
 # Escolha aleatoriamente uma palavra secreta da lista
 palavra_secreta = random.choice(palavras_secretas)
