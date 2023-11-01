@@ -1,4 +1,5 @@
 import random
+import json
 
 def generate_cpf():
     # Gera os oito primeiros dígitos do CPF de forma aleatória
@@ -70,9 +71,19 @@ def validate_cpf(cpf):
 
     return True
 
-# Gera um CPF válido e verifica se é válido
-cpf_gerado = generate_cpf()
-if validate_cpf(cpf_gerado):
-    print(f"CPF gerado: {cpf_gerado} (Válido)")
-else:
-    print(f"CPF gerado: {cpf_gerado} (Inválido)")
+# Solicita ao usuário o número de CPFs a serem gerados
+num_cpfs = int(input("Digite o número de CPFs a serem gerados: "))
+
+# Gera e valida os CPFs
+cpf_data = []
+for i in range(num_cpfs):
+    cpf = generate_cpf()
+    is_valid = validate_cpf(cpf)
+    cpf_data.append({"id": i + 1, "cpf": cpf, "valid": is_valid})
+
+# Cria um arquivo JSON com os CPFs gerados
+json_filename = "cpfs_generated.json"
+with open(json_filename, "w") as json_file:
+    json.dump(cpf_data, json_file, indent=2)
+
+print(f"{num_cpfs} CPFs gerados e salvos em {json_filename}")
