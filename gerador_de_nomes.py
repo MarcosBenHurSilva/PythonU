@@ -23,6 +23,8 @@ def generate_full_name():
     "Sousa", "Pereira", "Nascimento", "Alves", "Rocha", "Ramos", "Pires", "Machado", "Nogueira", "Cardoso"
     ]
 
+    
+
     # Gera os nomes (1 ou 2) aleatoriamente
     generated_names = random.sample(names, num_names)
 

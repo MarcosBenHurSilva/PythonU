@@ -71,38 +71,52 @@ def validate_cpf(cpf):
 
     return True
 
-def generate_full_name():
-    # Gera o número de nomes (1 ou 2) com base nas probabilidades
-    num_names = random.choices([1, 2], weights=[75, 25])[0]
+# Lista de nomes masculinos
+male_names = [
+    "João", "Pedro", "Carlos", "Miguel", "Rafael",
+    "Antônio", "Lucas", "Fernando", "Gustavo", "Felipe",
+    "José", "Daniel", "Bruno", "André", "Eduardo",
+    "Marcelo", "Thiago", "Ricardo", "Guilherme", "Paulo",
+    "Roberto", "Vinícius", "Fábio", "Sérgio", "Ronaldo",
+    "Gilberto", "Samuel", "Leandro", "Márcio", "Carlos",
+    "Vitor", "Diego", "Luciano", "Raul", "Wagner",
+    "Felipe", "Alexandre", "Lucas", "César", "Ricardo",
+    "Caio", "Leonardo", "Renato", "Giovanni", "Joaquim",
+    "Luis", "Hugo", "Fernando", "Raul", "Antônio",
+    "Alberto", "Isaac", "Elias", "Thiago", "Sebastião",
+    "Geraldo", "Álvaro", "Armando", "Arnaldo", "Vicente",
+    "Roberto", "Sergio", "Wagner", "Anderson"
+]
 
-    # Gera o número de sobrenomes (1 a 4) com base nas probabilidades
-    num_surnames = random.choices([1, 2, 3, 4], weights=[20, 60, 15, 5])[0]
+# Lista de nomes femininos
+female_names = [
+    "Maria", "Ana", "Luiza", "Isabela", "Larissa",
+    "Camila", "Juliana", "Amanda", "Bianca", "Vanessa",
+    "Renata", "Patrícia", "Aline", "Mônica", "Jessica",
+    "Natália", "Leticia", "Thais", "Priscila", "Fernanda",
+    "Andréa", "Cristina", "Cecília", "Helena", "Larissa",
+    "Simone", "Mariana", "Cátia", "Tatiana", "Flávia",
+    "Andressa", "Eduarda", "Rafaela", "Elaine", "Laura",
+    "Vanessa", "Sandra", "Mônica", "Regina", "Larissa",
+    "Isabela", "Márcia", "Tatiane", "Lorena", "Carla",
+    "Patrícia", "Jéssica", "Ana", "Sueli", "Thais",
+    "Priscila", "Fernanda", "Larissa", "Roberta", "Carolina",
+    "Brenda", "Nathalia", "Amanda", "Karla", "Simone",
+    "Valéria", "Eduarda", "Mariana", "Rosana", "Tânia"
+]
 
-    # Lista de nomes e sobrenomes fictícios
-    names = [
-    "João", "Maria", "Pedro", "Ana", "Carlos", "Luiza", "Miguel", "Isabela", "Rafael", "Larissa",
-    "Antônio", "Camila", "Lucas", "Juliana", "Fernando", "Amanda", "Gustavo", "Bianca", "Felipe", "Vanessa",
-    "José", "Renata", "Daniel", "Patrícia", "Bruno", "Aline", "André", "Monica", "Eduardo", "Jessica",
-    "Marcelo", "Natália", "Thiago", "Leticia", "Ricardo", "Thais", "Guilherme", "Priscila", "Paulo", "Fernanda"
-    ]
-
-    surnames = [
+# Lista de sobrenomes
+surnames = [
     "Silva", "Santos", "Oliveira", "Pereira", "Ribeiro", "Gomes", "Almeida", "Ferreira", "Carvalho",
     "Rodrigues", "Martins", "Fernandes", "Nunes", "Monteiro", "Cavalcanti", "Vieira", "Lima", "Sousa", "Barbosa",
     "Lopes", "Costa", "Correia", "Mendes", "Dias", "Castro", "Freitas", "Pinto", "Borges", "Moraes",
-    "Sousa", "Pereira", "Nascimento", "Alves", "Rocha", "Ramos", "Pires", "Machado", "Nogueira", "Cardoso"
-    ]
-
-    # Gera os nomes (1 ou 2) aleatoriamente
-    generated_names = random.sample(names, num_names)
-
-    # Gera os sobrenomes (1 a 4) aleatoriamente
-    generated_surnames = random.sample(surnames, num_surnames)
-
-    # Combina nomes e sobrenomes para criar o nome completo
-    full_name = ' '.join(generated_names + generated_surnames)
-
-    return full_name
+    "Sousa", "Pereira", "Nascimento", "Alves", "Rocha", "Ramos", "Pires", "Machado", "Nogueira", "Cardoso",
+    "Andrade", "Ribeira", "Ferreira", "Mendes", "Correia", "Carvalho", "Lima", "Fernandes", "Barros", "Campos",
+    "Moraes", "Nascimento", "Almeida", "Gonçalves", "Cavalcanti", "Vieira", "Dias", "Santana", "Pessoa", "Gomes",
+    "Ramos", "Martins", "Rocha", "Nunes", "Lopes", "Dias", "Lima", "Carvalho", "Ribeira", "Andrade",
+    "Ferreira", "Sousa", "Pereira", "Freitas", "Cardoso", "Pinto", "Santos", "Machado", "Nascimento", "Nogueira",
+    "Borges", "Silveira", "Costa", "Alves", "Araújo", "Melo", "Gouveia", "Azevedo", "Campos", "Gonçalves"
+]
 
 # Porcentagens por faixa etária
 percentages = {
@@ -128,19 +142,41 @@ def generate_random_age():
     else:
         return random.randint(65, 100)
 
+# Função para gerar gênero aleatório com base nas porcentagens
+def generate_random_gender():
+    gender = random.choices(["Masculino", "Feminino", "Não-Binário"], weights=[45, 48, 2])[0]
+    return gender
+
+def generate_name_by_gender(gender):
+    num_names = random.choices([1, 2], weights=[75, 25])[0]
+    num_surnames = random.choices([1, 2, 3, 4], weights=[20, 60, 15, 5])[0]
+
+    if gender == "Masculino":
+        first_name = random.choice(male_names)
+    elif gender == "Feminino":
+        first_name = random.choice(female_names)
+    else:  # Gênero não-binário
+        first_name = random.choice(random.choice([male_names, female_names]))
+
+    last_names = random.sample(surnames, num_surnames)
+    full_name = [first_name] + last_names[:num_names]
+
+    return ' '.join(full_name)
+    
 # Solicita ao usuário o número de perfis a serem gerados
 num_perfil = int(input("Digite o número de perfis a serem gerados: "))
 
 # Gera os perfis
 perfis_data = []
 for i in range(num_perfil):
-    full_name = generate_full_name()
+    gender = generate_random_gender()
+    full_name = generate_name_by_gender(gender)
     cpf = generate_cpf()
     is_valid = validate_cpf(cpf)
     idade = generate_random_age()
-    perfis_data.append({"id": i + 1, "nome": full_name, "Idade": idade, "cpf": cpf, "valid": is_valid, })
+    perfis_data.append({"id": i + 1, "nome": full_name, "Idade": idade, "gender": gender, "cpf": cpf, "valid": is_valid})
 
-# Cria um arquivo JSON com os nomes gerados
+# Cria um arquivo JSON com os perfis gerados
 json_filename = "perfis_generated.json"
 with open(json_filename, "w", encoding="utf-8") as json_file:
     json.dump(perfis_data, json_file, ensure_ascii=False, indent=2)

@@ -24,12 +24,15 @@ contrário disso:
 O primeiro dígito do CPF é 7
 """
 
-cpf = '74682489070'
+cpf = '64120252000'
 nove_digitos = cpf[:9]
-contador_regressivo = 10
+contador_regressivo_1 = 10
 
-for digito in nove_digitos:
-    print(digito, contador_regressivo)
-    contador_regressivo -= 1
-
-# print(nove_digitos)
+resultado_digito_1 = 0
+for digito_1 in nove_digitos:
+    resultado_digito_1 += int(digito_1) * contador_regressivo_1
+    contador_regressivo_1 -= 1
+digito_1 =(resultado_digito_1 * 10) % 11
+print(digito_1)
+digito_1 = digito_1 if digito_1 <= 9 else 0
+print(digito_1)
