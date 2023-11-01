@@ -185,7 +185,7 @@ for i in range(num_perfil):
     is_valid = validate_cpf(cpf)
     idade = generate_random_age()
     perfis_data.append(
-        {"id": i + 1, "nome": full_name, "Idade": idade, "gender": gender, "cpf": cpf, "valid": is_valid})
+        {"id": i + 1, "Nome": full_name, "Idade": idade, "Gênero": gender, "Cpf": cpf, "valid": is_valid})
 
 # Cria um arquivo JSON com os perfis gerados
 json_filename = "perfis_generated.json"
@@ -203,7 +203,7 @@ ws.append(["ID", "Nome", "Idade", "Gênero", "CPF"])
 
 # Adicione os perfis aos dados
 for perfil in perfis_data:
-    ws.append([perfil["id"], perfil["nome"], perfil["Idade"], perfil["gender"], perfil["cpf"]])
+    ws.append([perfil["id"], perfil["Nome"], perfil["Idade"], perfil["Gênero"], perfil["Cpf"]])
 
 # Especifique o caminho do arquivo .xls
 xls_filename = "perfis_generated_openpyxl.xlsx"
