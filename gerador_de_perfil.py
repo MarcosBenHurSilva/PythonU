@@ -1,5 +1,7 @@
 import random
 import json
+from openpyxl import Workbook
+
 
 def generate_cpf():
     # Gera os oito primeiros dígitos do CPF de forma aleatória
@@ -29,9 +31,11 @@ def generate_cpf():
         cpf.append(11 - remainder)
 
     # Formata o CPF no padrão XXX.XXX.XXX-XX
-    cpf_str = ''.join(map(str, cpf[:3])) + '.' + ''.join(map(str, cpf[3:6])) + '.' + ''.join(map(str, cpf[6:9])) + '-' + ''.join(map(str, cpf[9:11]))
+    cpf_str = ''.join(map(str, cpf[:3])) + '.' + ''.join(map(str, cpf[3:6])) + '.' + ''.join(
+        map(str, cpf[6:9])) + '-' + ''.join(map(str, cpf[9:11]))
 
     return cpf_str
+
 
 def validate_cpf(cpf):
     # Remove caracteres não numéricos do CPF
@@ -70,6 +74,7 @@ def validate_cpf(cpf):
         return False
 
     return True
+
 
 # Lista de nomes masculinos
 male_names = [
@@ -127,6 +132,7 @@ percentages = {
     "65 anos ou mais": 9.5
 }
 
+
 # Função para gerar idade aleatória com base nas porcentagens
 def generate_random_age():
     rand_num = random.uniform(0, 100)  # Gera um número aleatório entre 0 e 100
@@ -137,15 +143,18 @@ def generate_random_age():
         return random.randint(15, 24)
     elif rand_num <= percentages["0-14 anos"] + percentages["15-24 anos"] + percentages["25-54 anos"]:
         return random.randint(25, 54)
-    elif rand_num <= percentages["0-14 anos"] + percentages["15-24 anos"] + percentages["25-54 anos"] + percentages["55-64 anos"]:
+    elif rand_num <= percentages["0-14 anos"] + percentages["15-24 anos"] + percentages["25-54 anos"] + percentages[
+        "55-64 anos"]:
         return random.randint(55, 64)
     else:
         return random.randint(65, 100)
+
 
 # Função para gerar gênero aleatório com base nas porcentagens
 def generate_random_gender():
     gender = random.choices(["Masculino", "Feminino", "Não-Binário"], weights=[45, 48, 2])[0]
     return gender
+
 
 def generate_name_by_gender(gender):
     num_names = random.choices([1, 2], weights=[75, 25])[0]
@@ -162,7 +171,8 @@ def generate_name_by_gender(gender):
     full_name = [first_name] + last_names[:num_names]
 
     return ' '.join(full_name)
-    
+
+
 # Solicita ao usuário o número de perfis a serem gerados
 num_perfil = int(input("Digite o número de perfis a serem gerados: "))
 
@@ -174,7 +184,8 @@ for i in range(num_perfil):
     cpf = generate_cpf()
     is_valid = validate_cpf(cpf)
     idade = generate_random_age()
-    perfis_data.append({"id": i + 1, "nome": full_name, "Idade": idade, "gender": gender, "cpf": cpf, "valid": is_valid})
+    perfis_data.append(
+        {"id": i + 1, "nome": full_name, "Idade": idade, "gender": gender, "cpf": cpf, "valid": is_valid})
 
 # Cria um arquivo JSON com os perfis gerados
 json_filename = "perfis_generated.json"
@@ -182,3 +193,22 @@ with open(json_filename, "w", encoding="utf-8") as json_file:
     json.dump(perfis_data, json_file, ensure_ascii=False, indent=2)
 
 print(f"{num_perfil} Perfis gerados e salvos em {json_filename}")
+
+# Crie um arquivo de planilha
+wb = Workbook()
+ws = wb.active
+
+# Adicione cabeçalhos
+ws.append(["ID", "Nome", "Idade", "Gênero", "CPF"])
+
+# Adicione os perfis aos dados
+for perfil in perfis_data:
+    ws.append([perfil["id"], perfil["nome"], perfil["Idade"], perfil["gender"], perfil["cpf"]])
+
+# Especifique o caminho do arquivo .xls
+xls_filename = "perfis_generated_openpyxl.xlsx"
+
+# Salve a planilha no arquivo
+wb.save(xls_filename)
+
+print(f"{num_perfil} Perfis gerados e salvos em {xls_filename}")
