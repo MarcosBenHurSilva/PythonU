@@ -161,16 +161,16 @@ def generate_name_by_gender(gender):
     num_surnames = random.choices([1, 2, 3, 4], weights=[25, 60, 10, 5])[0]
 
     if gender == "Masculino":
-        first_name = random.choice(male_names)
+        first_name = random.sample(male_names, num_names)
     elif gender == "Feminino":
-        first_name = random.choice(female_names)
+        first_name = random.sample(female_names, num_names)
     else:  # Gênero não-binário
-        first_name = random.choice(random.choice([male_names, female_names]))
-
+        first_name = random.sample(random.choice([male_names, female_names]), num_names)
+    
     last_names = random.sample(surnames, num_surnames)
-    full_name = [first_name] + last_names[:num_names]
+    full_name = ' '.join(first_name + last_names)
 
-    return ' '.join(full_name)
+    return full_name
 
 def generate_cep():
     # Gera os oito primeiros dígitos do CEP de forma aleatória
