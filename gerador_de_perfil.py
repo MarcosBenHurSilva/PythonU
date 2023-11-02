@@ -152,13 +152,13 @@ def generate_random_age():
 
 # Função para gerar gênero aleatório com base nas porcentagens
 def generate_random_gender():
-    gender = random.choices(["Masculino", "Feminino", "Não-Binário"], weights=[45, 48, 2])[0]
+    gender = random.choices(["Masculino", "Feminino", "Não-Binário"], weights=[47, 51, 2])[0]
     return gender
 
 
 def generate_name_by_gender(gender):
     num_names = random.choices([1, 2], weights=[75, 25])[0]
-    num_surnames = random.choices([1, 2, 3, 4], weights=[20, 60, 15, 5])[0]
+    num_surnames = random.choices([1, 2, 3, 4], weights=[25, 60, 10, 5])[0]
 
     if gender == "Masculino":
         first_name = random.choice(male_names)
