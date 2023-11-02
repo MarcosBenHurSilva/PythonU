@@ -172,6 +172,24 @@ def generate_name_by_gender(gender):
 
     return ' '.join(full_name)
 
+def generate_cep():
+    # Gera os oito primeiros dígitos do CEP de forma aleatória
+    cep = [random.randint(0, 9) for _ in range(8)]
+
+    # Calcula o nono dígito verificador
+    total = 0
+    for i in range(8):
+        total += cep[i] * (10 - i)
+    remainder = total % 11
+    if remainder < 2:
+        cep.append(0)
+    else:
+        cep.append(11 - remainder)
+
+    # Formata o CEP no padrão brasileiro (XXXXXXXX)
+    cep_str = ''.join(map(str, cep))
+
+    return cep_str
 
 # Solicita ao usuário o número de perfis a serem gerados
 num_perfil = int(input("Digite o número de perfis a serem gerados: "))
@@ -184,8 +202,9 @@ for i in range(num_perfil):
     cpf = generate_cpf()
     is_valid = validate_cpf(cpf)
     idade = generate_random_age()
+    valid_cep = generate_cep()
     perfis_data.append(
-        {"id": i + 1, "Nome": full_name, "Idade": idade, "Gênero": gender, "Cpf": cpf, "valid": is_valid})
+        {"id": i + 1, "Nome": full_name, "Idade": idade, "Gênero": gender, "Cpf": cpf, "CEP": valid_cep, "valid": is_valid})
 
 # Cria um arquivo JSON com os perfis gerados
 json_filename = "perfis_generated.json"
@@ -199,11 +218,11 @@ wb = Workbook()
 ws = wb.active
 
 # Adicione cabeçalhos
-ws.append(["ID", "Nome", "Idade", "Gênero", "CPF"])
+ws.append(["ID", "Nome", "Idade", "Gênero", "CPF", "CEP"])
 
 # Adicione os perfis aos dados
 for perfil in perfis_data:
-    ws.append([perfil["id"], perfil["Nome"], perfil["Idade"], perfil["Gênero"], perfil["Cpf"]])
+    ws.append([perfil["id"], perfil["Nome"], perfil["Idade"], perfil["Gênero"], perfil["Cpf"], perfil["CEP"]])
 
 # Especifique o caminho do arquivo .xls
 xls_filename = "perfis_generated_openpyxl.xlsx"
