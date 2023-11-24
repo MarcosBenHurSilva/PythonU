@@ -10,8 +10,8 @@
 # popitem - Apaga o último item adicionado
 # update - Atualiza um dicionário com outro
 p1 = {
-    'nome': 'Luiz',
-    'sobrenome': 'Miranda',
+    'nome': 'Marcos',
+    'sobrenome': 'Silva',
 }
 # print(p1['nome'])
 # print(p1.get('nome', 'Não existe'))
@@ -28,6 +28,6 @@ p1 = {
 # })
 # p1.update(nome='novo valor', idade=30)
 # tupla = (('nome', 'novo valor'), ('idade', 30))
-lista = [['nome', 'novo valor'], ['idade', 30]]
+lista = [['nome', 'novo valor'], ['idade', 31]]
 p1.update(lista)
 print(p1)
