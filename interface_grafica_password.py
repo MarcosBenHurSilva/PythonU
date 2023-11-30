@@ -33,8 +33,8 @@ def generate_password(length, include_lowercase, include_uppercase, include_numb
 
 def save_to_mongodb(site, user, password):
     client = MongoClient('mongodb://localhost:27017')
-    db = client['nome_do_seu_banco']
-    collection = db['nome_da_sua_colecao']
+    db = client['Gerador_de_Senhas']
+    collection = db['Senhas_geradas_interface_grafica']
 
     result = collection.insert_one({"Site": site, "User": user, "Senha": password})
     return result.inserted_id
