@@ -5,7 +5,7 @@ from password_generator import generate_password
 perfis_data = []
 site = input("Para qual serviço deseja gerar a senha: ")
 user = input("Qual o user ou email deste serviço: ")
-senha = generate_password(12, any, any, any, any)
+senha = generate_password(16, any, any, any, any)
 
 perfis_data.append(
     {"Site": site, "User": user, "Senha": senha})
