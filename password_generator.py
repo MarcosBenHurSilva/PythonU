@@ -23,21 +23,21 @@ def generate_password(length, include_lowercase, include_uppercase, include_numb
     for _ in range(length):
         random_index = random.randint(0, len(allowed_chars) - 1)
         password += allowed_chars[random_index]
-
+    
     return password
 
-password_length = 12
-include_lowercase = True
-include_uppercase = True
-include_numbers = True
-include_symbols = True
+# password_length = 12
+# include_lowercase = True
+# include_uppercase = True
+# include_numbers = True
+# include_symbols = True
 
-password = generate_password(
-    password_length,
-    include_lowercase,
-    include_uppercase,
-    include_numbers,
-    include_symbols
-)
+# password = generate_password(
+#     password_length,
+#     include_lowercase,
+#     include_uppercase,
+#     include_numbers,
+#     include_symbols
+# )
 
-print(password)
+# print(password)
