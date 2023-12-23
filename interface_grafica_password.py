@@ -57,7 +57,7 @@ def generate_and_save(site_entry, user_entry, result_label):
         user = user_entry.get()
         password = generate_password(16, True, True, True, True)
         inserted_id = save_to_mongodb(site, user, password)
-        result_label.config(text=f"Senha gerada e salva no MongoDB com ID: {inserted_id}")
+        result_label.config(text=f"Senha gerada: {password}. Salva no MongoDB com ID: {inserted_id}")
     except ValueError as e:
         result_label.config(text=f"Erro: {e}")
 
