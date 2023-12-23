@@ -5,7 +5,7 @@ while True:
     letras.add(letra.lower())
 
     if 'l' in letras:
-        print('PARABÉNS')
+        print('PARABÉNS!!!')
         break
 
     print(letras)
