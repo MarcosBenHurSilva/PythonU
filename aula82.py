@@ -32,3 +32,11 @@ print(
         1, 2, 3, 4, 5, 6, 7
     )
 )
+
+# Definir uma função lambda que retorna o maior elemento de uma lista
+maior = lambda lista: max(lista)
+
+# Aplicar a função lambda a uma lista
+print(maior([1, 2, 3, 4]))
+
+
