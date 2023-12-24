@@ -44,3 +44,16 @@ novos_produtos = [
     if (produto['preco'] >= 20 and produto['preco'] * 1.05) > 10
 ]
 p(novos_produtos)
+
+# Criar uma lista com os quadrados dos números de 1 a 10:
+quadrados = [x**2 for x in range(1, 11)]
+print(quadrados)
+
+# Criar uma lista com as letras maiúsculas de uma string:
+maiusculas = [letra.upper() for letra in "hello world"]
+print(maiusculas)
+
+# Criar uma lista com números pares de outra lista:
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+pares = [num for num in numeros if num % 2 == 0]
+print(pares)
