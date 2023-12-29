@@ -62,6 +62,13 @@ def generate_and_save(site_entry, user_entry, result_label):
         result_label.config(
             text=f"Senha gerada: {password}. Salva no MongoDB com ID: {inserted_id}"
         )
+        perfis_data = []
+        perfis_data.append({"Site": site, "User": user, "Senha": password})
+
+        json_filename = "login_data.json"
+        with open(json_filename, "w", encoding="utf-8") as json_file:
+            json.dump(perfis_data, json_file, ensure_ascii=False, indent=2)
+
     except ValueError as e:
         result_label.config(text=f"Erro: {e}")
 
