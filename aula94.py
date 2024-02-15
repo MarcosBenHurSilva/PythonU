@@ -6,7 +6,7 @@ try:
 except ZeroDivisionError as e:
     print(e.__class__.__name__)
     print(e)
-    print("DIVIDIU ZERO")
+    print("DIVIDIU POR ZERO")
 except IndexError as error:
     print("IndexError")
 except (NameError, ImportError):
