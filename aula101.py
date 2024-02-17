@@ -10,6 +10,7 @@ def multiplica(x, y):
 def criar_funcao(funcao, x):
     def interna(y):
         return funcao(x, y)
+
     return interna
 
 
