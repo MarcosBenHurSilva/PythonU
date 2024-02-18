@@ -13,10 +13,10 @@
 # print(modulo.soma_do_modulo(1, 2))
 # print(variavel)
 # print(nova_variavel)
-# from aula99_package.modulo import fala_oi, soma_do_modulo
+from aula99_package.modulo import fala_oi, soma_do_modulo
 
-# print(__name__)
-# fala_oi()
+print(__name__)
+fala_oi()
 
 from aula99_package import falar_oi, soma_do_modulo
 
