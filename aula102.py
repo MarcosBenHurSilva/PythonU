@@ -15,6 +15,7 @@
 
 # print(dentro1())
 # print(dentro2())
+
 def concatenar(string_inicial):
     valor_final = string_inicial
 
