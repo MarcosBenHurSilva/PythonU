@@ -1,7 +1,12 @@
 from tkinter import *
 from tkinter import messagebox
+from tkinter import ttk
 import json
 import base64
+
+# Definição das cores
+COR_PRINCIPAL = "#273746"
+COR_SECUNDARIA = "#F8B149"
 
 
 # Função para criptografar a string
@@ -37,10 +42,17 @@ janela = Tk()
 janela.title("Criptografia de String")
 janela.geometry("300x200")
 
+# Personalização da interface
+janela.configure(bg=COR_PRINCIPAL)
+
 # Criação dos widgets
-label_texto = Label(text="Digite a string para criptografar:")
+label_texto = Label(
+    text="Digite a string para criptografar:", bg=COR_PRINCIPAL, fg="white"
+)
 entrada_texto = Entry()
-botao_criptografar = Button(text="Criptografar e Gerar JSON", command=on_click)
+botao_criptografar = Button(
+    text="Criptografar e Gerar JSON", command=on_click, bg=COR_SECUNDARIA, fg="black"
+)
 
 # Layout dos widgets
 label_texto.pack()
