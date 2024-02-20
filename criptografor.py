@@ -1,63 +1,52 @@
-from tkinter import *
-from tkinter import messagebox
-from tkinter import ttk
 import json
 import base64
-
-# Definição das cores
-COR_PRINCIPAL = "#273746"
-COR_SECUNDARIA = "#F8B149"
+import PySimpleGUI as sg
 
 
 # Função para criptografar a string
 def criptografar(texto):
-    return base64.b64encode(texto.encode("utf-8"))
+    return base64.b64encode(texto.encode("utf-8")).decode("utf-8")
 
 
 # Função para gerar o arquivo JSON
 def gerar_json(texto_original, texto_criptografado):
     dados = {
         "texto_original": texto_original,
-        "texto_criptografado": texto_criptografado.decode("utf-8"),
+        "texto_criptografado": texto_criptografado,
     }
     with open("criptografia.json", "w") as f:
         json.dump(dados, f, indent=4)
 
 
-# Função para a ação do botão
-def on_click():
-    texto = entrada_texto.get()
-    if not texto:
-        messagebox.showerror("Erro", "Digite uma string para criptografar!")
-        return
+# Layout da interface
+layout = [
+    [sg.Text("Digite a string para criptografar:", size=(30, 1))],
+    [sg.InputText(key="texto_original")],
+    [sg.Button("Criptografar e Gerar JSON")],
+    [sg.Text("Resultado:", size=(30, 1))],
+    [sg.Multiline(key="resultado", disabled=True)],
+]
 
-    texto_criptografado = criptografar(texto)
-    gerar_json(texto, texto_criptografado)
+# Criação da janela
+janela = sg.Window("Criptografia de String", layout)
 
-    messagebox.showinfo("Sucesso", "Arquivo JSON gerado com sucesso!")
+# Loop da interface
+while True:
+    # Leitura dos eventos
+    evento, valores = janela.read()
 
+    # Se o botão for clicado
+    if evento == "Criptografar e Gerar JSON":
+        texto_original = valores["texto_original"]
+        texto_criptografado = criptografar(texto_original)
+        gerar_json(texto_original, texto_criptografado)
 
-# Criação da interface gráfica
-janela = Tk()
-janela.title("Criptografia de String")
-janela.geometry("300x200")
+        # Atualização da interface com o resultado
+        janela["resultado"].update(f"{texto_criptografado}")
 
-# Personalização da interface
-janela.configure(bg=COR_PRINCIPAL)
+    # Se o usuário fechar a janela
+    if evento == sg.WIN_CLOSED:
+        break
 
-# Criação dos widgets
-label_texto = Label(
-    text="Digite a string para criptografar:", bg=COR_PRINCIPAL, fg="white"
-)
-entrada_texto = Entry()
-botao_criptografar = Button(
-    text="Criptografar e Gerar JSON", command=on_click, bg=COR_SECUNDARIA, fg="black"
-)
-
-# Layout dos widgets
-label_texto.pack()
-entrada_texto.pack()
-botao_criptografar.pack()
-
-# Execução da interface gráfica
-janela.mainloop()
+# Fechamento da janela
+janela.close()
