@@ -1,5 +1,4 @@
 import base64
-import hashlib
 
 text = "Texto a ser codificado em base64. Aumentando o texto para ver a diferença. Continuar aumentando o texto."
 text2 = "Texto a ser codificado (criptografado)."
