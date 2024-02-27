@@ -10,7 +10,7 @@ produtos = [
     {"nome": "Produto 3", "preco": 10.11},
     {"nome": "Produto 2", "preco": 105.87},
     {"nome": "Produto 4", "preco": 69.90},
-    {"nome": "Produto 5", "preco": 1583.72},
+    {"nome": "Produto 6", "preco": 1583.72},
 ]
 
 
