@@ -34,3 +34,4 @@
 # pip freeze > requirements.txt
 # Instalando tudo do requirements.txt
 # pip install -r requirements.txt
+# venv vnev
