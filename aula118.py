@@ -6,16 +6,16 @@ def adiciona_clientes(nome, lista=None):
     return lista
 
 
-cliente1 = adiciona_clientes('luiz')
-adiciona_clientes('Joana', cliente1)
-adiciona_clientes('Fernando', cliente1)
-cliente1.append('Edu')
+cliente1 = adiciona_clientes("Marcos")
+adiciona_clientes("Joana", cliente1)
+adiciona_clientes("Fernando", cliente1)
+cliente1.append("Edu")
 
-cliente2 = adiciona_clientes('Helena')
-adiciona_clientes('Maria', cliente2)
+cliente2 = adiciona_clientes("Helena")
+adiciona_clientes("Maria", cliente2)
 
-cliente3 = adiciona_clientes('Moreira')
-adiciona_clientes('Vivi', cliente3)
+cliente3 = adiciona_clientes("Moreira")
+adiciona_clientes("Vivi", cliente3)
 
 print(cliente1)
 print(cliente2)
