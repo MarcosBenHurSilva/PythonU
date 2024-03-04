@@ -5,16 +5,16 @@ class Carro:
         self.nome = nome
 
     def acelerar(self):
-        print(f'{self.nome} está acelerando...')
+        print(f"{self.nome} está acelerando...")
 
 
-string = 'Luiz'
+string = "Marcos"
 print(string.upper())
 
-fusca = Carro('Fusca')
+fusca = Carro("Fusca")
 print(fusca.nome)
 fusca.acelerar()
 
-celta = Carro(nome='Celta')
+celta = Carro(nome="Celta")
 print(celta.nome)
 celta.acelerar()
