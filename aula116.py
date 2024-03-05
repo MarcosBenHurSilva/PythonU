@@ -21,10 +21,12 @@ import os
 # Vamos falar mais sobre o módulo json, mas:
 # json.dump = Gera um arquivo json
 # json.load
-caminho_arquivo = "aula116.txt"
+caminho_arquivo = "C:\\Python311\\aulasPy\\"
+caminho_arquivo += "aula116.txt"
+print(caminho_arquivo)
 
 arquivo = open(caminho_arquivo, "w")
-#
+
 arquivo.close()
 
 with open(caminho_arquivo, "w+") as arquivo:
