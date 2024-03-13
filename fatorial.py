@@ -1,11 +1,13 @@
 def fat(n):
-    if n == 0:
+    if n < 0:
+        print("Não existe fatorial de número negativo!")
+    elif n == 0:
         return 1
     else:
         return n * fat(n - 1)
 
 
 if __name__ == "__main__":
-    n = 5
+    n = -5
     res = fat(n)
     print(f"O fatorial de {n} é {res}")
