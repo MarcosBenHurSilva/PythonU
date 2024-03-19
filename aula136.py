@@ -19,7 +19,7 @@ class Cliente:
             print(endereco.rua, endereco.numero)
 
     def __del__(self):
-        print('APAGANDO,', self.nome)
+        print("APAGANDO,", self.nome)
 
 
 class Endereco:
@@ -28,13 +28,13 @@ class Endereco:
         self.numero = numero
 
     def __del__(self):
-        print('APAGANDO,', self.rua, self.numero)
+        print("APAGANDO,", self.rua, self.numero)
 
 
-cliente1 = Cliente('Maria')
-cliente1.inserir_endereco('Av Brasil', 54)
-cliente1.inserir_endereco('Rua B', 6745)
-endereco_externo = Endereco('Av Saudade', 123213)
+cliente1 = Cliente("Marcos")
+cliente1.inserir_endereco("Av Brasil", 54)
+cliente1.inserir_endereco("Rua B", 6745)
+endereco_externo = Endereco("Av Saudade", 123213)
 cliente1.inserir_endereco_externo(endereco_externo)
 cliente1.listar_enderecos()
 
@@ -42,4 +42,4 @@ del cliente1
 
 
 print(endereco_externo.rua, endereco_externo.numero)
-print('######################## AQUI TERMINA MEU CÓDIGO')
+print("######################## AQUI TERMINA MEU CÓDIGO")
