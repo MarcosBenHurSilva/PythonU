@@ -35,5 +35,5 @@ if __name__ == "__main__":
     lp.log_error("ops qualquer coisa")
     lp.log_success("Que legal")
     lf = LogFileMixin()
-    lf.log_error("deu erro")
-    lf.log_success("Que legal")
+    lf.log_error("deu erro!")
+    lf.log_success("Que legal!")
