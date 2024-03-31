@@ -13,10 +13,10 @@ class A:
 
     def __init__(self, x):
         self.x = x
-        print('Sou o init')
+        print("Sou o init!")
 
     def __repr__(self):
-        return 'A()'
+        return "A()"
 
 
 a = A(123)
