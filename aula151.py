@@ -1,9 +1,10 @@
 # Funções decoradoras e decoradores com classes
 
+
 def meu_repr(self):
     class_name = self.__class__.__name__
     class_dict = self.__dict__
-    class_repr = f'{class_name}({class_dict})'
+    class_repr = f"{class_name}({class_dict})"
     return class_repr
 
 
@@ -24,11 +25,11 @@ class Planeta:
         self.nome = nome
 
 
-brasil = Time('Brasil')
-portugal = Time('Portugal')
+brasil = Time("Brasil")
+portugal = Time("Portugal")
 
-terra = Planeta('Terra')
-marte = Planeta('Marte')
+terra = Planeta("Terra")
+marte = Planeta("Venus")
 
 print(brasil)
 print(portugal)
