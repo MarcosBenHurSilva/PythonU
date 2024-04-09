@@ -18,8 +18,8 @@
 import enum
 
 
-def mover(direcao):
-    print(f"Movendo para {direcao}")
+# def mover(direcao):
+#     print(f"Movendo para {direcao}")
 
 
 # mover("esquerda")
