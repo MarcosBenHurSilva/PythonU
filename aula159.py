@@ -15,6 +15,6 @@ class Pessoa:
 
 
 if __name__ == "__main__":
-    p1 = Pessoa("Luiz", 30)
-    p2 = Pessoa("Luiz", 30)
+    p1 = Pessoa("Marcos", 31)
+    p2 = Pessoa("Marcos", 31)
     print(p1 == p2)
