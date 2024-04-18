@@ -24,8 +24,9 @@ class Pessoa:
         self.nome = nome
         self.sobrenome = " ".join(sobrenome)
 
-    def __init__(self, nome, sobrenome):
+    def __init__(self, nome, idade, sobrenome):
         self.nome = nome
+        self.idade = idade
         self.sobrenome = " ".join(sobrenome)
         self.sobrenome = sobrenome
         self.nome_completo = f"{self.nome} {self.sobrenome}"
