@@ -8,7 +8,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(init=False)
 class Pessoa:
     nome: str
     idade: int
@@ -23,6 +23,15 @@ class Pessoa:
         nome, *sobrenome = valor.split()
         self.nome = nome
         self.sobrenome = " ".join(sobrenome)
+
+    def __init__(self, nome, sobrenome):
+        self.nome = nome
+        self.sobrenome = " ".join(sobrenome)
+        self.sobrenome = sobrenome
+        self.nome_completo = f"{self.nome} {self.sobrenome}"
+
+    def __post_init__(self):
+        print("POST INIT")
 
 
 if __name__ == "__main__":
