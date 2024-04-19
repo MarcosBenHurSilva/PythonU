@@ -34,14 +34,15 @@ class Pessoa:
     #     def __post_init__(self):
     #         print("POST INIT")
 
-    if __name__ == "__main__":
-        #     p1 = Pessoa("Marcos", 31, "Silva")
-        #     p2 = Pessoa("Marcos", 31, "Silva")
-        #     print(p1 == p2)
-        #     p1 = Pessoa("Marcos", 31, "Silva")
-        #     p1.nome_completo = "Benhur Dorneles"
-        #     print(p1)
-        #     print(p1.nome_completo)
-        lista = [Pessoa("A", "Z"), Pessoa("B", "Y"), Pessoa("C", "X")]
-        ordenadas = sorted(lista, reverse=True, key=lambda p: p.sobrenome)
-        print(ordenadas)
+
+if __name__ == "__main__":
+    #     p1 = Pessoa("Marcos", 31, "Silva")
+    #     p2 = Pessoa("Marcos", 31, "Silva")
+    #     print(p1 == p2)
+    #     p1 = Pessoa("Marcos", 31, "Silva")
+    #     p1.nome_completo = "Benhur Dorneles"
+    #     print(p1)
+    #     print(p1.nome_completo)
+    lista = [Pessoa("A", "Z"), Pessoa("B", "Y"), Pessoa("C", "X")]
+    ordenadas = sorted(lista, reverse=True, key=lambda p: p.sobrenome)
+    print(ordenadas)
