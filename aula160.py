@@ -19,7 +19,7 @@ class Carta(NamedTuple):
 #     'Carta', ['valor', 'naipe'],
 #     defaults=['VALOR', 'NAIPE']
 # )
-as_espadas = Carta("A")
+as_espadas = Carta("A", "♠️")
 
 print(as_espadas._asdict())
 print(as_espadas)
