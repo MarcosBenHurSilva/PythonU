@@ -6,8 +6,9 @@
 import os
 from itertools import count
 
-caminho = os.path.join("/Users", "luizotavio", "Desktop", "EXEMPLO")
+caminho = os.path.join("/Users", "Usuario", "Desktop", "EXEMPLO")
 counter = count()
+# C:\Users\Usuario\Desktop\EXEMPLO
 
 for root, dirs, files in os.walk(caminho):
     the_counter = next(counter)
