@@ -10,7 +10,7 @@ with open(CAMINHO_CSV, "r") as arquivo:
     leitor = csv.DictReader(arquivo)
 
     for linha in leitor:
-        print(linha["Nome"], linha["Idade"], linha["Endereço"])
+        print(linha["Nome"], linha["Idade"], linha["Endereco"])
 
 # with open(CAMINHO_CSV, 'r') as arquivo:
 #     leitor = csv.reader(arquivo)
