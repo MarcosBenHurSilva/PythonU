@@ -1,4 +1,4 @@
-# string.Template para substituir variáveis em textos
+# String.Template para substituir variáveis em textos
 # doc: https://docs.python.org/3/library/string.html#template-strings
 # Métodos:
 # substitute: substitui mas gera erros se faltar chaves
@@ -22,11 +22,11 @@ def converte_para_brl(numero: float) -> str:
 
 data = datetime(2022, 12, 28)
 dados = dict(
-    nome="João",
+    nome="Marcos",
     valor=converte_para_brl(1_234_456),
     data=data.strftime("%d/%m/%Y"),
     empresa="O. M.",
-    telefone="+55 (11) 7890-5432",
+    telefone="+55 (51) 99890-6472",
 )
 
 
