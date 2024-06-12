@@ -12,3 +12,11 @@ a = a ^ b  # Terceiro XOR
 print("\nValores trocados:")
 print("a =", a)
 print("b =", b)
+
+# Em python da pra trocar variaveis assim tbm
+
+a, b = b, a
+
+print("\nValores trocados2:")
+print("a =", a)
+print("b =", b)
